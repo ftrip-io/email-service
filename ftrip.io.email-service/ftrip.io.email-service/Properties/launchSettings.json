@@ -1,0 +1,40 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:24262",
+      "sslPort": 44335
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/healthcheck-api",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "ftrip.io.email_service": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/healthcheck-api",
+      "applicationUrl": "https://localhost:5004;http://localhost:4497",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+
+        "MDB_URL": "localhost:27017",
+        "MDB_USERNAME": "root",
+        "MDB_PASSWORD": "password",
+        "MDB_DATABASE": "weather_db",
+
+        "RMQ_SERVER": "localhost",
+        "RMQ_PORT": "5672",
+        "RMQ_USER": "user",
+        "RMQ_PASSWORD": "password"
+      }
+    }
+  }
+}
