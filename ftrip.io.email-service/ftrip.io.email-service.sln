@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ftrip.io.email-service", "ftrip.io.email-service\ftrip.io.email-service.csproj", "{AAB1FB41-CAC7-4D82-B748-8C913F2FCE4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ftrip.io.email-service.contracts", "ftrip.io.email-service.contracts\ftrip.io.email-service.contracts.csproj", "{AF08ED7C-C200-4FD9-A6F0-2AD35B14A461}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAB1FB41-CAC7-4D82-B748-8C913F2FCE4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB1FB41-CAC7-4D82-B748-8C913F2FCE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB1FB41-CAC7-4D82-B748-8C913F2FCE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB1FB41-CAC7-4D82-B748-8C913F2FCE4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF08ED7C-C200-4FD9-A6F0-2AD35B14A461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF08ED7C-C200-4FD9-A6F0-2AD35B14A461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF08ED7C-C200-4FD9-A6F0-2AD35B14A461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF08ED7C-C200-4FD9-A6F0-2AD35B14A461}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB5F794F-217B-40F6-ADC6-045F174E1C74}
+	EndGlobalSection
+EndGlobal
