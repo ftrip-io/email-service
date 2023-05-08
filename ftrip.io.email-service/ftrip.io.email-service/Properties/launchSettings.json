@@ -28,12 +28,17 @@
         "MDB_URL": "localhost:27017",
         "MDB_USERNAME": "root",
         "MDB_PASSWORD": "password",
-        "MDB_DATABASE": "weather_db",
+        "MDB_DATABASE": "email_db",
 
         "RMQ_SERVER": "localhost",
         "RMQ_PORT": "5672",
         "RMQ_USER": "user",
-        "RMQ_PASSWORD": "password"
+        "RMQ_PASSWORD": "password",
+
+        "SMTP_HOST": "smtp-relay.sendinblue.com",
+        "SMTP_PORT": "587",
+        "SMTP_USERNAME": "panic.milos99@gmail.com",
+        "SMTP_PASSWORD": "YRphJz8FQ0LwBImM"
       }
     }
   }
