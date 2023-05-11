@@ -1,4 +1,5 @@
 using ftrip.io.email_service.Installers;
+using ftrip.io.framework.email.Installers;
 using ftrip.io.framework.ExceptionHandling.Extensions;
 using ftrip.io.framework.HealthCheck;
 using ftrip.io.framework.Installers;
@@ -35,7 +36,8 @@ namespace ftrip.io.email_service
                 new MongodbInstaller(services),
                 new MongodbHealthCheckInstaller(services),
                 new RabbitMQInstaller<Startup>(services, RabbitMQInstallerType.Consumer),
-                new DependenciesIntaller(services)
+                new DependenciesIntaller(services),
+                new EmailDispatcherInstaller<Startup>(services)
             ).Install();
         }
 
