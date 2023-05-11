@@ -5,7 +5,7 @@
       "name": "NewNotification",
       "template": {
         "Subject": "Ftrip.io Notifications",
-        "From": "panic.milos99@gmail.com",
+        "From": "ftrip.io2023@gmail.com",
         "Recipients": [ "{{to}}" ],
         "Body": "<p>Dear {{name}},</p><p>You have a new notification on our portal. Make sure to check it as fast as possible.</p>"
       }
