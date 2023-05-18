@@ -35,6 +35,8 @@
         "RMQ_USER": "user",
         "RMQ_PASSWORD": "password",
 
+        "GRAFANA_LOKI_URL": "http://localhost:3100",
+
         "SMTP_HOST": "smtp-relay.sendinblue.com",
         "SMTP_PORT": "587",
         "SMTP_USERNAME": "panic.milos99@gmail.com",
