@@ -1,4 +1,5 @@
 using ftrip.io.email_service.Installers;
+using ftrip.io.framework.Correlation;
 using ftrip.io.framework.email.Installers;
 using ftrip.io.framework.ExceptionHandling.Extensions;
 using ftrip.io.framework.HealthCheck;
@@ -6,12 +7,14 @@ using ftrip.io.framework.Installers;
 using ftrip.io.framework.Mapping;
 using ftrip.io.framework.messaging.Installers;
 using ftrip.io.framework.Persistence.NoSql.Mongodb.Installers;
+using ftrip.io.framework.Tracing;
 using ftrip.io.framework.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace ftrip.io.email_service
 {
@@ -37,7 +40,14 @@ namespace ftrip.io.email_service
                 new MongodbHealthCheckInstaller(services),
                 new RabbitMQInstaller<Startup>(services, RabbitMQInstallerType.Consumer),
                 new DependenciesIntaller(services),
-                new EmailDispatcherInstaller<Startup>(services)
+                new EmailDispatcherInstaller<Startup>(services),
+                new CorrelationInstaller(services),
+                new TracingInstaller(services, (tracingSettings) =>
+                {
+                    tracingSettings.ApplicationLabel = "email";
+                    tracingSettings.ApplicationVersion = GetType().Assembly.GetName().Version?.ToString() ?? "unknown";
+                    tracingSettings.MachineName = Environment.MachineName;
+                })
             ).Install();
         }
 
@@ -55,6 +65,7 @@ namespace ftrip.io.email_service
 
             app.UseAuthorization();
 
+            app.UseCorrelation();
             app.UseFtripioGlobalExceptionHandler();
 
             app.UseEndpoints(endpoints =>
