@@ -7,6 +7,7 @@ using ftrip.io.framework.Installers;
 using ftrip.io.framework.Mapping;
 using ftrip.io.framework.messaging.Installers;
 using ftrip.io.framework.Persistence.NoSql.Mongodb.Installers;
+using ftrip.io.framework.Proxies;
 using ftrip.io.framework.Tracing;
 using ftrip.io.framework.Validation;
 using Microsoft.AspNetCore.Builder;
@@ -47,7 +48,8 @@ namespace ftrip.io.email_service
                     tracingSettings.ApplicationLabel = "email";
                     tracingSettings.ApplicationVersion = GetType().Assembly.GetName().Version?.ToString() ?? "unknown";
                     tracingSettings.MachineName = Environment.MachineName;
-                })
+                }),
+                new ProxyGeneratorInstaller(services)
             ).Install();
         }
 
