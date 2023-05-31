@@ -1,5 +1,6 @@
 ﻿using ftrip.io.email_service.ContactsList;
 using ftrip.io.framework.Installers;
+using ftrip.io.framework.Proxies;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ftrip.io.email_service.Installers
@@ -15,7 +16,7 @@ namespace ftrip.io.email_service.Installers
 
         public void Install()
         {
-            _services.AddScoped<IContactRepository, ContactRepository>();
+            _services.AddProxiedScoped<IContactRepository, ContactRepository>();
         }
     }
 }
