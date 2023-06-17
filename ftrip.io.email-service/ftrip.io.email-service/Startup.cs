@@ -6,6 +6,7 @@ using ftrip.io.framework.HealthCheck;
 using ftrip.io.framework.Installers;
 using ftrip.io.framework.Mapping;
 using ftrip.io.framework.messaging.Installers;
+using ftrip.io.framework.Metrics;
 using ftrip.io.framework.Persistence.NoSql.Mongodb.Installers;
 using ftrip.io.framework.Proxies;
 using ftrip.io.framework.Tracing;
@@ -49,7 +50,8 @@ namespace ftrip.io.email_service
                     tracingSettings.ApplicationVersion = GetType().Assembly.GetName().Version?.ToString() ?? "unknown";
                     tracingSettings.MachineName = Environment.MachineName;
                 }),
-                new ProxyGeneratorInstaller(services)
+                new ProxyGeneratorInstaller(services),
+                new MetricsInstaller(services)
             ).Install();
         }
 
@@ -64,6 +66,8 @@ namespace ftrip.io.email_service
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseMetrics();
 
             app.UseAuthorization();
 
