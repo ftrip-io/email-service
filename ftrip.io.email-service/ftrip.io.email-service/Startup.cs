@@ -42,6 +42,7 @@ namespace ftrip.io.email_service
                 new MongodbHealthCheckInstaller(services),
                 new RabbitMQInstaller<Startup>(services, RabbitMQInstallerType.Consumer),
                 new DependenciesIntaller(services),
+                new CurrentUserInstaller(services),
                 new EmailDispatcherInstaller<Startup>(services),
                 new CorrelationInstaller(services),
                 new TracingInstaller(services, (tracingSettings) =>
