@@ -15,9 +15,14 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: ftrip-io/github-ci/build-and-push-to-dockerhub@ef2fd6ac85fe9e0ae63e5979a82a35bd5075bc33
+      - name: Kaniko build
+        uses: aevea/action-kaniko@v0.10.0
         with:
+          image: ftripio/email-service
+          path: ftrip.io.email-service
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
-          context: "ftrip.io.email-service"
-          tags: ftripio/email-service:latest, ftripio/email-service:${{ steps.semantic-release.outputs.next-version }}
+          tag: ${{ steps.semantic-release.outputs.next-version }}
+          tag_with_latest: true
+          cache: true
+          cache_registry: ftripio/email-service-cache
