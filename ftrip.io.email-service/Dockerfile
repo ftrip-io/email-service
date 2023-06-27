@@ -19,10 +19,9 @@ RUN dotnet publish -c $CONFIGURATION -o out ftrip.io.email-service/ftrip.io.emai
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS final
 WORKDIR /app
 
-RUN addgroup --system ftrip-io
-RUN adduser --system email-service
+RUN addgroup --system ftrip-io && adduser --system email-service
 
-COPY --from=build --chown=email-service:ftrip-io --chmod=500 /build/out .
+COPY --from=build --chown=email-service:ftrip-io --chmod=777 /build/out .
 
 EXPOSE 80
 
